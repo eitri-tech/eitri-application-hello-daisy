@@ -1,6 +1,6 @@
-# Eitri Application V2
+# Eitri Application - Hello Daisy
 
-O **Eitri Application V2** é um bundle desenvolvido para simplificar a criação de aplicativos.
+O **Eitri Application - Hello Daisy** é um bundle desenvolvido para simplificar a criação de aplicativos utilizando o Luminus Daisy.
 
 ### Benefícios
 
@@ -16,7 +16,6 @@ Com o **Eitri**, você tem total controle sobre seu aplicativo, economizando tem
 1. Primeiro você precisa instalar a Eitri CLI:
    ```bash
    npm i -g eitri-cli
-
 
 2. Faça login em sua conta Eitri:
    ```bash
@@ -39,10 +38,3 @@ Configurar sua Aplicação é simples e rápido. Siga os passos abaixo para conf
 6. Clique em **Editar Configurações**.
 7. Realize as alterações desejadas no Json.
 8. Clique em **"Atualizar"** para finalizar.
-
-
-
-
-
-
-
