@@ -8,7 +8,7 @@ import { Text, View, Button } from "eitri-luminus";
  * 
  */
 export default function GenericError(props) {
-    const { onRetryPress = null } = props
+    const { onRetryPress =() => {console.log("onRetryPress not implemented")} } = props
     const [appSlug, setAppSlug] = useState('')
 
     async function getConfigs() {
@@ -16,29 +16,21 @@ export default function GenericError(props) {
             const configs = await Eitri.getConfigs()
             setAppSlug(configs?.miniAppData?.slug)
         } catch (error) {
-            console.error("@Shared.GenericError.getConfigs", error)
+            console.error("@GenericError.getConfigs", error)
         }
     }
     getConfigs()
 
     function onCancelPress() {
-        Eitri.navigation.navigate({
-            path: 'Home',
-        })
+        Eitri.navigation.backToTop()
     }
 
-    const options = {
-        day: '2-digit',
-        month: '2-digit',
-        year: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-        timeZone: 'America/Sao_Paulo',
-        hour12: false,
-    };
-
-    const formatter = new Intl.DateTimeFormat('pt-BR', options);
-    const formattedDateHour = formatter.format(new Date()).replace(',', ' às ').replace(' ', ' ');
+    const date = new Date(Date.now());
+    const formattedDateHour = new Intl.DateTimeFormat("pt-BR", {
+        dateStyle: "short",
+        timeStyle: "short",
+        timeZone: "America/Sao_Paulo",
+      }).format(date)
 
     return (
         <View className="flex items-center justify-center min-h-[85vh] bg-opacity-90">
@@ -74,7 +66,3 @@ export default function GenericError(props) {
         </View>
     )
 }
-
-
-
-
