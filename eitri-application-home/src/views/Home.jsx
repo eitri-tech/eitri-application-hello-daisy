@@ -7,6 +7,11 @@ import Presentation from "../assets/images/presentation.webp";
 export default function Home(props) {
   const { t } = useTranslation();
 
+  function goToProducts(){
+    Eitri.navigation.navigate({ path: "/Products/ProductsList" })
+    return
+  }
+
   return (
     <Page className="w-screen h-screen">
       <View className="pt-8 w-full h-full">
@@ -25,9 +30,7 @@ export default function Home(props) {
 
           <Button
             className="btn btn-secondary mt-16 w-full"
-            onClick={async () =>
-              await Eitri.navigation.navigate({ path: "/Products/List" })
-            }
+            onClick={goToProducts}
           >
             {t("home.button")}
           </Button>
